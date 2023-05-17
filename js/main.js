@@ -9,12 +9,13 @@ import './effects.js';
 
 const RERENDER_DELAY = 500;
 
-getData((data) => {
-  showPictures(data);
-  setFilterClickHandler(data, debounce(showPictures, RERENDER_DELAY));
-},
-
-() => {
-  showErrorAlert('Не удалось загрузить изображения.');
-}
-);
+getData()
+  .then((data) => {
+    showPictures(data);
+    setFilterClickHandler(data, debounce(showPictures, RERENDER_DELAY));
+  })
+  .catch(
+    (err) => {
+      showErrorAlert(err.message);
+    }
+  );

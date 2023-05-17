@@ -52,10 +52,13 @@ const showBigPicture = (info) => {
     bigPicture.classList.add('hidden');
     body.classList.remove('modal-open');
     commentsLoader.removeEventListener('click', onClickCommentsLoader);
+    closeButton.removeEventListener('click', onCloseButtonClick);
     document.removeEventListener('keydown', onEscKeydown);
     count = 0;
   };
-  const onCloseButtonClick = () => hideBigPicture();
+  function onCloseButtonClick () {
+    hideBigPicture();
+  }
   function onEscKeydown (evt) {
     if (isEscapeKey(evt)) {
       evt.preventDefault();

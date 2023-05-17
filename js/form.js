@@ -113,7 +113,10 @@ const onFormSubmit = (evt) => {
   if(isValid) {
     blockSubmitButton();
     const formData = new FormData(evt.target);
-    sendData(formData, showSuccessMessage, showUploadErrorMessage, unblockSubmitButton);
+    sendData(formData)
+      .then(showSuccessMessage)
+      .catch(showUploadErrorMessage)
+      .finally(unblockSubmitButton);
   }
 };
 

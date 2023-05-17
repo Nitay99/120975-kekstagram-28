@@ -35,9 +35,9 @@ const showPictures = (pictures) => {
   pictures.forEach((picture) => {
     const pictureElement = createPicture(picture);
     fragment.append(pictureElement);
-    imageFilters.classList.remove('img-filters--inactive');
   });
   container.append(fragment);
+  imageFilters.classList.remove('img-filters--inactive');
 };
 
 export { showPictures };
